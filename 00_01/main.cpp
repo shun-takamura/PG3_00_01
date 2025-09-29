@@ -3,7 +3,7 @@
 
 int main() {
 
-	//SetConsoleOutputCP(65001);
+	SetConsoleOutputCP(65001);
 
 	char str[] = "モジバケル";
 
