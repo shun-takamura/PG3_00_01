@@ -20,28 +20,16 @@ int recursiveTotal(int hours) {
 }
 
 int main() {
-    while (true) {
-        int h;
-        cout << "\n働いた時間を入力（終了するには 0 を入力）: ";
-        cin >> h;
 
-        if (h <= 0) {
-            cout << "終了\n";
-            break;
-        }
-
+    int crossoverHour = -1; // 逆転した時間
+    for (int h = 1; h <= 20; ++h) { // 20時間まで計算
         int normal = normalPay(h);
         int recursive = recursiveTotal(h);
+        cout << h << "時間\t" << normal << "円\t\t" << recursive << "円\n";
 
-        cout << "【一般的な賃金体系】 " << normal << "円\n";
-        cout << "【再帰的な賃金体系】 " << recursive << "円\n";
-
-        if (recursive > normal)
-            cout << "再帰的な賃金体系のほうが得\n";
-        else if (recursive < normal)
-            cout << "一般的な賃金体系のほうが得\n";
-        else
-            cout << "どちらも同じ\n";
+        if (recursive > normal && crossoverHour == -1) {
+            crossoverHour = h;
+        }
     }
 
     return 0;
