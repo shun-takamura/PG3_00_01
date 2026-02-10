@@ -1,8 +1,6 @@
 #include <iostream>
-#include <stdlib.h>
-#include <vector>
 #include <list>
-#include <Windows.h>
+#include <cstring>
 using namespace std;
 
 void printList(const list<const char*>& lst, const char* title) {
@@ -15,14 +13,13 @@ void printList(const list<const char*>& lst, const char* title) {
 int main() {
 	// 1970年(西日暮里,高輪ゲートウェイなし)
 	list<const char*> y1970 = {
-		"Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", 
-		"Nippori", 
-		"Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro", 
-		"Mejiro", "Takadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", "Harajuku", 
-		"Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa", 
-		"Tamachi", "Hamamatsucho", "Shimbashi", "Yurakucho" 
+		"Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani",
+		"Nippori",
+		"Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro",
+		"Mejiro", "Takadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", "Harajuku",
+		"Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa",
+		"Tamachi", "Hamamatsucho", "Shimbashi", "Yurakucho"
 	};
-
 	printList(y1970, "1970年の山手線駅一覧");
 
 	// 1971年：西日暮里を追加
@@ -38,15 +35,14 @@ int main() {
 	list<const char*> y2019 = y1971;
 	printList(y2019, "2019年の山手線駅一覧");
 
-	// 2022年：高輪ゲートウェイを追加
+	// 2022年：高輪ゲートウェイを追加（TamachiとShinagawaの間）
 	list<const char*> y2022 = y2019;
 	for (auto itr = y2022.begin(); itr != y2022.end(); ++itr) {
-		if (strcmp(*itr, "Shinagawa") == 0) {
+		if (strcmp(*itr, "Tamachi") == 0) {
 			y2022.insert(itr, "Takanawa Gateway");
 			break;
 		}
 	}
-
 	printList(y2022, "2022年の山手線駅一覧");
 
 	return 0;
